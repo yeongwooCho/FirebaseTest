@@ -22,16 +22,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# of Customer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocH-d9-Iqr">
+                                <rect key="frame" x="115" y="400" width="184.5" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="boS-gi-DSU" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1Gg-5D-IyD"/>
+                            <constraint firstItem="ocH-d9-Iqr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="4Up-vW-Usa"/>
                             <constraint firstItem="boS-gi-DSU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="234" id="RI1-vd-XML"/>
+                            <constraint firstItem="ocH-d9-Iqr" firstAttribute="top" secondItem="boS-gi-DSU" secondAttribute="bottom" constant="86" id="oF9-dD-hxT"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="dataLabel" destination="boS-gi-DSU" id="qCR-Z6-8CK"/>
+                        <outlet property="numOfCustomers" destination="ocH-d9-Iqr" id="sAg-Z5-owE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
