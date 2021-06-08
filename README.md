@@ -1,6 +1,6 @@
 # FirebaseTest
 
-**Firebase 란?**
+*Firebase 란?*
 
 앱을 만들다 보면 서버와의 Networking을 하는 경우가 많이 생기고, 서버를 만들어야 되는 경우가 존재한다.
 이제는 서버를 서비스로 제공하는 것이 존재하고 이는 google의 Firebase이다.
