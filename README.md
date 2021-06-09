@@ -35,3 +35,80 @@ Firebase IOS SDK를 프로젝트 안에 설치하면 된다.
 SDK( Software Development Kit ) —> 개발도구라고 생각하면 된다.
 Firebase를 사용하기 위한 기능들을 구글 개발자들이 만들어놨다. 우리는 가져와서 사용만 하면 된다.
 Firebase IOS SDK는 Firebase를 IOS에 접목하기 위한 소프트웨어 개발 바구니 이다.
+
+<br><br>
+
+### Data Read
+~~~
+let db: DatabaseReference! = Database.database(url: "https://fir-test-fae7a-default-rtdb.asia-southeast1.firebasedatabase.app/").reference()
+
+class ViewController {
+    let db: DatabaseReference! = Database.database().reference()
+    
+    func fetchCustomers() {
+        db.child("customers").observeSingleEvent(of: .value) { snapshot in
+            print("--> snapshot value: \(snapshot.value)")
+            
+            do {
+                let data = try JSONSerialization.data(withJSONObject: snapshot.value, options: [])
+                let decoder = JSONDecoder()
+                let customers: [Customer] = try decoder.decode([Customer].self, from: data)
+                print("--> customer count: \(customers.count)")
+                DispatchQueue.main.async {
+                    self.numOfCustomers.text = "num of customers: \(customers.count)"
+                }
+            } catch let error {
+                print("--> error: \(error.localizedDescription)")
+            }
+        }
+    }
+}
+
+struct Customer: Codable {
+    let id: String
+    let name: String
+    let books: [Book]
+    
+    var toDictionary: [String: Any] {
+        let booksArray = books.map { $0.toDictionary }
+        return ["id": id, "name": name, "books": booksArray]
+    }
+    
+    static var id: Int = 0
+}
+
+struct Book: Codable {
+    let title: String
+    let author: String
+    
+    var toDictionary: [String: Any] {
+        return ["title": title, "author": author]
+    }
+}
+
+
+
+~~~
+
+<br><br>
+
+### Date Write
+
+<br><br>
+
+### Data Update
+
+<br><br>
+
+### Data Delete
+
+~~~
+func deleteBasicTypes() {
+        db.child("int").removeValue()
+        db.child("double").removeValue()
+        db.child("string").removeValue()
+    }
+}
+~~~
+
+<br><br>
